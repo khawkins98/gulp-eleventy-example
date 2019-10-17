@@ -1,13 +1,6 @@
 const gulp  = require('gulp');
-const fs = require('fs');
-const path = require('path');
-var   fractalBuildMode;
-
-// -----------------------------------------------------------------------------
-// Configuration
-// -----------------------------------------------------------------------------
-
-const buildDestionation = path.resolve('.', 'build').replace(/\\/g, '/');
+// const fs = require('fs');
+// const path = require('path');
 
 // Watch folders for changess
 gulp.task('watch', function() {
