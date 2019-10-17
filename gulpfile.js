@@ -50,8 +50,9 @@ gulp.task('eleventy:build', function(done) {
 // This is more thorough than elev.watch() as it will
 // also capture variable changes
 gulp.task('eleventy:reload', function(done) {
-  elev.restart()
-  elev.write()
+  elev.restart();
+  elev.write();
+  done();
 });
 
 // Eleventy doesn't always finish promptly
