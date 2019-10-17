@@ -1,0 +1,30 @@
+{
+  "name": "gulp-eleventy",
+  "version": "1.0.0-alpha.1",
+  "description": "A demonstration of integration Eleventy with gulp in the same Node process.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/khawkins98/gulp-eleventy.git"
+  },
+  "license": "Apache-2.0",
+  "author": "Ken Hawkins <khawkins98@gmail.com> (https://www.allaboutken.com/)",
+  "main": "gulpfile.js",
+  "scripts": {
+    "build": "gulp build && echo \"🏋 Build completed\" && exit 0",
+    "dev": "gulp dev",
+    "start": "npm run dev",
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "update-components": "yarn upgrade-interactive --latest"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^0.9.0",
+    "@visual-framework/vf-eleventy--extensions": "^1.0.0-alpha.11",
+    "gulp": "^4.0.2",
+    "gulp-watch": "^5.0.1"
+  },
+  "bugs": {
+    "url": "https://github.com/khawkins98/gulp-eleventy/issues"
+  },
+  "homepage": "https://github.com/khawkins98/gulp-eleventy#readme",
+  "keywords": []
+}

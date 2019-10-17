@@ -1,0 +1,34 @@
+---
+date: 2018-08-22 12:24:50
+layout: layouts/base.njk
+templateEngineOverride: njk, md
+---
+
+
+## What you get
+
+- the Eleventy static site generator
+- access to the Visual Framework component system
+
+### Component installation
+
+To add a component you can use npm/Yarn or install it manually.
+
+In either case you'll need to re-run `gulp dev` to ensure the component is fully loaded.
+
+- installation: `yarn add @visual-framework/vf-logo`
+- updating: `yarn upgrade-interactive --latest`
+
+### Manual installation for customisation
+
+1. Download a pattern
+2. Copy it to `./src/components/vf-component-name`
+
+### Add your own local component
+
+You can add a custom VF-compatible component to `./src/components` and use it in
+your site.
+
+- `gulp vf-component`
+
+You'll find a `vf-sample` component there, we've used it below:

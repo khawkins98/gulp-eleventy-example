@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" media="all" href="https://dev.assets.emblstatic.net/vf/develop/css/styles.css" />
+    <title>{{ title or (renderData and renderData.title)}}</title>
+  </head>
+  <body class="{{ bodyClass }} vf-body">
+
+    <div class="vf-grid">
+      <div class="vf-content">
+        {{ content | safe }}
+      </div>
+    </div>
+    {% include "footer.njk" %}
+  </body>
+</html>
