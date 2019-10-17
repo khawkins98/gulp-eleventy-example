@@ -10,9 +10,9 @@ with direct access to Visual Framework 2.0 components.
 
 There are two methods you can use:
 
-1. Use the interactive yarn template [RECOMMENDED]
+1. Use the interactive npm template [RECOMMENDED]
     - If you don't have npm, [install it](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
-    - The [`create-vf-project`](https://github.com/visual-framework/create-vf-project) allows you to interactively create a new site by typing<br/> `yarn create @visual-framework/vf-project your-new-site-name`
+    - The [`create-vf-project`](https://github.com/visual-framework/create-vf-project) allows you to interactively create a new site by typing<br/> `npm create @visual-framework/vf-project your-new-site-name`
     - Follow the prompts
 1. The GitHub template
     - Click the "[Use this template](https://help.github.com/en/articles/creating-a-repository-from-a-template)" method; quick url: https://github.com/khawkins98/gulp-eleventy/generate
@@ -30,10 +30,10 @@ Otherwise configure gulp and eleventy as you would for any other project.
 ## 3. Developing your new site
 
 1. You'll need to [install npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
-1. If you don't have `yarn`, install it
-   - https://yarnpkg.com/lang/en/docs/install/
+1. If you don't have `npm`, install it
+   - https://npmpkg.com/lang/en/docs/install/
 1. Install all the things
-   - `yarn install`
+   - `npm install`
 1. Generate the site in `/build`
    - `gulp dev` renders and serves
    - `gulp build` build static assets
@@ -44,9 +44,9 @@ To add a component, use the command line or install it manually.
 
 ### By package
 
-- installation: `yarn add @visual-framework/vf-logo`
-- updating components: `yarn upgrade-interactive --latest`
-  - alias: `yarn run update-components`
+- installation: `npm add @visual-framework/vf-logo`
+- updating components: `npm upgrade-interactive --latest`
+  - alias: `npm run update-components`
 
 ### Manual installation for customisation
 
@@ -65,8 +65,8 @@ You'll find a `vf-sample` component already placed in `./src/components`
 
 ## 4. Footnotes
 
-- Why `yarn` and not `npm`?
-  For the particular structure of the Visual Framework components, Yarn is considerably
+- Why `npm` and not `npm`?
+  For the particular structure of the Visual Framework components, npm is considerably
   faster at installing and does so more efficiently (about half the total file size). You'll
-  also be able to use `yarn upgrade-interactive --latest`, which makes it easier to update
+  also be able to use `npm upgrade-interactive --latest`, which makes it easier to update
   VF components.

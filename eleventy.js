@@ -4,6 +4,8 @@ const Path         = require('path');
 
 module.exports = function(config) {
 
+  config.addLayoutAlias('default', 'layouts/base.njk');
+
   // BroswerSync options
   config.setBrowserSyncConfig({ open: true });
 
