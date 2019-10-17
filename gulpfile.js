@@ -1,82 +1,68 @@
 const gulp  = require('gulp');
-// const fs = require('fs');
-// const path = require('path');
+var through = require('through2');
+
+// Generate a sample list of all files in ./src
+// for demonstration Gulp integration with Eleventy
+gulp.task('file-list', function () {
+  global.fileList = [];
+  return gulp.src(['./src/**/*.{njk,html,js,md}'])
+    .pipe(through.obj(function (file, enc, cb) {
+      global.fileList.push(file.path);
+      cb(null);
+    }));
+});
 
 // Watch folders for changess
 gulp.task('watch', function() {
-  // gulp.watch(['./src/components/**/*.scss', '!./src/components/**/package.variables.scss'], gulp.parallel('vf-css'));
-  // gulp.watch(['./src/components/**/*.js'], gulp.parallel('vf-scripts'));
+  gulp.watch(['./src/**/*.{njk,html,js,md'], gulp.series('file-list', 'eleventy:reload'));
 });
 
-gulp.task('set-to-development', function(done) {
+// Run eleventy
+process.argv.push('--config=eleventy.js'); // Eleventy config
+let elev = require('./eleventy-cmd.js');
+
+gulp.task('eleventy:develop', function(done) {
   process.argv.push('--serve');
   process.env.ELEVENTY_ENV = 'development';
-  done();
+
+  // You could instead use elev.write() here, but then you should add your own browsersync task
+  elev.watch().then(function() {
+    elev.serve('3000');
+    done();
+  });
 });
 
-gulp.task('set-to-static-build', function(done) {
+gulp.task('eleventy:build', function(done) {
   process.argv.push('--quiet');
   process.env.ELEVENTY_ENV = 'production';
-  done();
+
+  elev.write().then(function() {
+    console.log('Done building 11ty');
+    done();
+  });
 });
 
-// // Watch for changes, we'll use this to trigger a fractal rebuild
-// const touch = require("touch");
-// fractal.components.on('updated', function(source, eventData){
-//   console.log('Component source has been updated: ' + source.path);
-
-//   // For now we're just touching a watched file until we can figure out something better
-//   // https://github.com/11ty/eleventy/issues/604
-//   // A solution will likely require a PR or forking eleventy's cmd.js
-//   // to `module.exports = elev;` and then we can:
-//   // ```
-//   // global.eleventy.restart()
-//   // global.eleventy.write()
-//   // ```
-//   touch('src/site/_data/fractalEnvironment.js');
-//   console.log('Manual rebuild of 11ty triggered')
-// });
-
-
-// Run eleventy, but only after we wait for fractal to bootstrap
-// @todo: consider if this could/should be two parallel gulp tasks
-gulp.task('eleventy', function(done) {
-  let elev;
-  process.argv.push('--config=eleventy.js'); // Eleventy config
-
-  elev = require('./eleventy-cmd.js');
-
-  if (process.env.ELEVENTY_ENV == 'production') {
-    elev.write().then(function() {
-      console.log('Done building 11ty');
-      done();
-    });
-  }
-  if (process.env.ELEVENTY_ENV == 'development') {
-    elev.watch().then(function() {
-      elev.serve('3000');
-      // console.log('Done building 11ty');
-      done();
-    });
-  }
-
+gulp.task('eleventy:reload', function(done) {
+  elev.restart()
+  elev.write()
 });
 
-// Eleventy doesn't always finish promptly, this ensures we exit gulp "cleanly"
-gulp.task('manual-exit', function(done) {
+// Eleventy doesn't always finish promptly
+// You can probably leave this command out 99% of the time
+gulp.task('eleventy:hard-exit', function(done) {
   done()(process.exit());
 });
 
 // Let's build this sucker.
 gulp.task('build', gulp.series(
-  'set-to-static-build',
-  'eleventy',
-  'manual-exit'
+  'file-list',
+  'eleventy:build',
+  'eleventy:hard-exit'
 ));
 
 // Build and watch things during dev
 gulp.task('dev', gulp.series(
-  'set-to-development',
-  'eleventy',
+  'file-list',
+  'eleventy:develop',
   gulp.parallel('watch')
 ));
