@@ -44,7 +44,7 @@ gulp.task('eleventy', function(done) {
   let elev;
   process.argv.push('--config=eleventy.js'); // Eleventy config
 
-  elev = require('./cmd.js');
+  elev = require('./eleventy-cmd.js');
 
   if (process.env.ELEVENTY_ENV == 'production') {
     elev.write().then(function() {
