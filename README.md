@@ -2,7 +2,7 @@
 
 A demonstration integration of Eleventy with gulp in the same Node process.
 
-For more background see the blog post; LINK TO COME 
+For background and detail [see the blog post](https://work.allaboutken.com/posts/20191021-integrating-eleventy-with-gulp.html) 
 
 ## Developing
 
