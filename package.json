@@ -1,10 +1,10 @@
 {
-  "name": "gulp-eleventy",
+  "name": "gulp-eleventy-example",
   "version": "1.0.0-alpha.1",
   "description": "A demonstration of integration Eleventy with gulp in the same Node process.",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/khawkins98/gulp-eleventy.git"
+    "url": "git+https://github.com/khawkins98/gulp-eleventy-example.git"
   },
   "license": "Apache-2.0",
   "author": "Ken Hawkins <khawkins98@gmail.com> (https://www.allaboutken.com/)",
@@ -24,8 +24,8 @@
     "touch": "^3.1.0"
   },
   "bugs": {
-    "url": "https://github.com/khawkins98/gulp-eleventy/issues"
+    "url": "https://github.com/khawkins98/gulp-eleventy-example/issues"
   },
-  "homepage": "https://github.com/khawkins98/gulp-eleventy#readme",
+  "homepage": "https://github.com/khawkins98/gulp-eleventy-example#readme",
   "keywords": []
 }

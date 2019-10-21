@@ -3,7 +3,7 @@
 // Forked from eleventy v0.9.0
 
 // This is a subtle fork for the main Eleventy cmd.js to behave as a module, returning `elev` so it can be npm-required
-// It allows things like the below in gulp or paren node js; for more see https://github.com/khawkins98/gulp-eleventy
+// It allows things like the below in gulp or paren node js; for more see https://github.com/khawkins98/gulp-eleventy-example
 //
 //   let elev = require('./eleventy-cmd.js');
 //   elev.write().then( function() {

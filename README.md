@@ -1,4 +1,4 @@
-# gulp-eleventy
+# gulp-eleventy-example
 
 A demonstration integration of Eleventy with gulp in the same Node process.
 

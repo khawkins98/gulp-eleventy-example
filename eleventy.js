@@ -21,7 +21,7 @@ module.exports = function(config) {
     htmlTemplateEngine : ["njk", "md"],
     markdownTemplateEngine : "njk",
     passthroughFileCopy: true,
-    pathPrefix: "/gulp-eleventy/" // if your site is deployed to a sub-url, otherwise comment out
+    pathPrefix: "/gulp-eleventy-example/" // if your site is deployed to a sub-url, otherwise comment out
   };
 
 };
