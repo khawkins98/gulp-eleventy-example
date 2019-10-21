@@ -6,7 +6,7 @@ const elev = require('./eleventy-cmd.js');
 
 // Watch folders for changess
 gulp.task('watch', function() {
-  gulp.watch(['./src/**/*.{njk,html,js,md'], gulp.series('file-list', 'eleventy:reload'));
+  gulp.watch(['./src/**/*.{njk,html,js,md'}], gulp.series('file-list', 'eleventy:reload'));
 });
 
 // Generate a sample list of all files in ./src
